@@ -6,13 +6,13 @@ type PostPreviewProps = {
 };
 export const PostPreview: FC<PostPreviewProps> = ({ post }) => {
   return (
-    <div className='flex p-4 gap-4 w-96'>
-      <div className='w-40 aspect-square bg-white text-4xl grid place-content-center rounded-lg'>
+    <div className="flex w-96 gap-4 p-4">
+      <div className="grid aspect-square w-40 place-content-center rounded-lg bg-white text-4xl">
         {post.emoji}
       </div>
-      <div className='grid grid-rows-2'>
-        <b className='text-lg'>{post.title}</b>
-        <p className='truncate'>{post.content}</p>
+      <div className="grid grid-rows-2">
+        <b className="text-lg">{post.title}</b>
+        <p className="truncate">{post.content}</p>
       </div>
     </div>
   );

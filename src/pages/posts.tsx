@@ -9,11 +9,15 @@ type PostsPageProps = {
 };
 const PostsPage: NextPage<PostsPageProps> = (props) => {
   return (
-    <div className='w-screen p-8'>
-      <h1 className='text-3xl mb-4'>記事一覧</h1>
-      <div className='flex flex-wrap gap-4 justify-between'>
+    <div className="w-screen p-8">
+      <h1 className="mb-4 text-3xl">記事一覧</h1>
+      <div className="flex flex-wrap justify-between gap-4">
         {props.posts.map((post) => (
-          <Link key={post.id} href={`/post/${post.id}`} className='hover:scale-105 duration-200'>
+          <Link
+            key={post.id}
+            href={`/post/${post.id}`}
+            className="duration-200 hover:scale-105"
+          >
             <PostPreview post={post} />
           </Link>
         ))}
@@ -29,7 +33,7 @@ export const getStaticProps: GetStaticProps<PostsPageProps> = async () => {
     filenames.map(async (filename) => {
       const { metadata } = await import(`./post/${filename}`);
       return metadata;
-    })
+    }),
   );
 
   return {
